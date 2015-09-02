@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+Xvfb -screen 0 800x600x16 &
+export DISPLAY=:0.0
+wkhtmltopdf $@
+killall Xvfb
