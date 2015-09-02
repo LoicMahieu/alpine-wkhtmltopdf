@@ -13,3 +13,6 @@ DISPLAY=:0.0 wkhtmltopdf-origin $@ \n\
 killall Xvfb\
 ' > /usr/bin/wkhtmltopdf
 RUN chmod +x /usr/bin/wkhtmltopdf
+
+# Additionnal dependencies for better rendering
+RUN apk-install ttf-freefont
