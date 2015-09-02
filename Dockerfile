@@ -8,7 +8,7 @@ RUN apk-install wkhtmltopdf@testing
 
 RUN mv /usr/bin/wkhtmltopdf /usr/bin/wkhtmltopdf-origin
 RUN echo $'#!/usr/bin/env bash\n\
-Xvfb -screen 0 800x600x16 & \n\
+Xvfb :0 -screen 0 1024x768x24 -ac +extension GLX +render -noreset & \n\
 DISPLAY=:0.0 wkhtmltopdf-origin $@ \n\
 killall Xvfb\
 ' > /usr/bin/wkhtmltopdf
