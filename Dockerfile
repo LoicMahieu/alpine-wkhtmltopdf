@@ -1,15 +1,17 @@
 FROM alpine:3.3
 
-RUN apk add --update \
+RUN apk add --no-cache \
             xvfb \
             # Additionnal dependencies for better rendering
             ttf-freefont \
             fontconfig \
+            dbus \
     && \
 
     # Install wkhtmltopdf from `testing` repository
-    apk add wkhtmltopdf \
-            --update-cache \
+    apk add qt5-qtbase-dev \
+            wkhtmltopdf \
+            --no-cache \
             --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
             --allow-untrusted \
     && \
